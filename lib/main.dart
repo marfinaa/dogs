@@ -20,7 +20,7 @@ class DogsApp extends StatelessWidget {
       // 4
       title: 'Породы собак',
       // 5
-      theme: theme.copyWith(
+      theme: ThemeData(scaffoldBackgroundColor: Colors.blueGrey,
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.brown,
         ),
@@ -50,11 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       // 3
-      body: SafeArea(
-        // 4
-        // 4
-        child: ListView.builder(
+      body: GridView.builder(
           // 5
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount (crossAxisCount: 2),
           itemCount: Dogs.samples.length,
           // 6
           itemBuilder: (BuildContext context, int index) {
@@ -78,12 +76,11 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           },
         ),
-      ),
-    );
+      );
   }
 
   Widget buildDogsCard(Dogs dogs) {
-    return Card(
+    return Card( color: Colors.white70,
       // 1
       elevation: 2.0,
       // 2
